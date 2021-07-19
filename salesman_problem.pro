@@ -1,7 +1,4 @@
-%Решение задачи коммивояжера: задан перечень городов и заданы стоимости проезда между ними.
-%Требуется найти такой маршрут обхода всех городов такой, 
-%чтобы суммарная стоимость проезда была минимальной и в каждом городе, кроме начального, 
-%коммивояжёр побывал только один раз.
+
 
 domains 
 city=string
@@ -14,33 +11,24 @@ delete(city,cities,cities)
 path(city,city,cost)
 road(city,city,cost)
 go(city,city,cities,cities,cost)
-member(city,cities)   %проверка на вхождение в списке
-setFromList(cities,cities) %создание множества из списка
+member(city,cities)   
+setFromList(cities,cities) 
 commi(cities,cost)
 packCitiesInSet(cities)
 waysOfVisiting(city,cities,cities,cost)
 clauses
-path("Калининград","Осло",12).
-path("Калининград","Минск",120).
-path("Калининград","Атырау",40).
-path("Калининград","Самара",90).
-path("Минск","Осло",110).
-path("Минск","Самара",52).
-path("Минск","Атырау",100).
-path("Осло","Атырау",32).
-path("Осло","Самара",105).
-path("Атырау","Самара",112).
-/*
-path("Цюрих","Бирмингем",30).
-path("Астана","Бирмингем",20).
-path("Астана","Цюрих",42).
-path("Цюрих","Денвер",12).
-path("Денвер","Астана",35).
-path("Денвер","Бирмингем",34).*/
+path("Denver","Oslo",12).
+path("Denver","Moscow",120).
+path("Denver","Atlanta",40).
+path("Denver","Sidney",90).
+path("Moscow","Oslo",110).
+path("Moscow","Sidney",52).
+path("Moscow","Atlanta",100).
+path("Oslo","Atlanta",32).
+path("Oslo","Sidney",105).
+path("Atlanta","Sidney",112).
 
 
- %так как граф не ориентированный,
- % от одного города до другого, то же самое, что и наоборот
 road(From,To,Cost):-path(From,To,Cost) ; path(To,From,Cost) .
 
 member(Head,[Head|_]).
