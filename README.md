@@ -1,3 +1,3 @@
 # travelling_salesman_problem
 
-created with visual prolog
+This program solves travelling salesman problem
